@@ -39,7 +39,7 @@ class BirthdayTile extends StatelessWidget {
                   ClipRRect(
                     borderRadius: BorderRadius.circular(50),
                     child: Image.asset(
-                      "assets/images/photo.png",
+                      "assets/images/people.png",
                       width: 40,
                       height: 40,
                       fit: BoxFit.cover,
@@ -61,7 +61,7 @@ class BirthdayTile extends StatelessWidget {
                   ClipRRect(
                     borderRadius: BorderRadius.circular(50),
                     child: Image.asset(
-                      "assets/images/photo.png",
+                      "assets/images/people.png",
                       width: 40,
                       height: 40,
                       fit: BoxFit.cover,

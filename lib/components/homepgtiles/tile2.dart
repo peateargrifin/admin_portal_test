@@ -14,7 +14,7 @@ class _Tile2State extends State<Tile2> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: context.width * 0.3,
+      width: context.width * 0.25,
       height: context.height*0.35,
       padding: const EdgeInsets.all(12),
       margin: const EdgeInsets.all(6),
@@ -74,7 +74,7 @@ class _Tile2State extends State<Tile2> {
             ClipRRect(
               borderRadius: BorderRadius.circular(8),
               child: Image.asset(
-                'assets/images/photo.png',
+                'assets/images/people.png',
                 width: 35,
                 height: 35,
                 fit: BoxFit.cover,

@@ -32,20 +32,22 @@ class _homeState extends State<home> {
 
                 // Tile 2 and Tile 3 - Row with spacing
                 Row(
+
                   children: [
+                    SizedBox(width: context.width*0.05,),
                     Padding(
-                      padding: const EdgeInsets.only(left: 24.0, right: 8.0),
+                      padding: const EdgeInsets.only(left: 30.0, right: 0.0),
                       child: Tile2(),
                     ),
-                    const SizedBox(width: 6),
+                   // const SizedBox(width: 3),
                     Padding(
-                      padding: const EdgeInsets.only(left: 3.0, right: 3.0),
+                      padding: const EdgeInsets.only(left: 0.0, right: 3.0),
                       child: Tile3(),
                     ),
                   ],
                 ),
 
-                const SizedBox(height: 12),
+                const SizedBox(height: 2),
 
                 // Tile 4 - Full width at bottom
                 Tile4(),

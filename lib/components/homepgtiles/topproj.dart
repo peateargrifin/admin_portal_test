@@ -7,7 +7,7 @@ class TopProj extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: context.width*0.6,
+      width: context.width*0.5,
       height: context.height * 0.2,
       //margin: const EdgeInsets.all(16),
       decoration: BoxDecoration(

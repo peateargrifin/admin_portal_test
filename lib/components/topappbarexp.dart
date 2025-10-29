@@ -60,7 +60,7 @@ class _topappbarexpState extends State<topappbarexp> {
             ),
 
 
-          SizedBox(width:context.width*0.073),
+          SizedBox(width:context.width*0.065),
 
           // List Icon
           IconButton(
@@ -112,7 +112,7 @@ class _topappbarexpState extends State<topappbarexp> {
             ),
             child: ClipOval(
               child: Image.asset(
-                'assets/images/photo.png', // Add user photo
+                'assets/images/people.png', // Add user photo
                 fit: BoxFit.cover,
               ),
             ),

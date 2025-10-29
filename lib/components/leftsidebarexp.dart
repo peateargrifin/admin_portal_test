@@ -34,18 +34,58 @@ final List<IconData> leftSideIcons = [
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 260,
+      width: context.width*0.17,
       color: const Color(0xFFFFFFFF),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Company Logo
           Container(
+            width: double.infinity,
             padding: const EdgeInsets.all(24.0),
             child: Image.asset(
-              'assets/images/photo.png', // Add company logo
+              'assets/images/chanel.png', // Add company logo
               height: 50,
+              alignment: Alignment.center,
               fit: BoxFit.contain,
+            ),
+          ),
+          Divider(color: Color(0xFF0C0C0C), height: 1),
+
+          // Company Logo
+          Container(
+            width: double.infinity,
+            padding: const EdgeInsets.all(24.0),
+            child: Column(
+              children:[
+                Image.asset(
+                'assets/images/peter.png', // Add company logo
+                height: 50,
+                fit: BoxFit.contain,
+              ),
+                const SizedBox(height: 2,),
+                Text("data"),
+                const SizedBox(height: 6),
+               //creating text button
+            TextButton(
+              onPressed: () {
+                  // Add functionality for the admin button here
+                  print('Admin button clicked');
+                },
+                style: TextButton.styleFrom(
+                  //foregroundColor: Colors.white,
+                  backgroundColor: Colors.white,
+                  
+                  shape: RoundedRectangleBorder(
+                    side: BorderSide(color: Color(0xFF000000)),
+                    
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                  minimumSize: Size(0, 0), // Allows the button to be compact
+                ),
+              child: Text("admin",style: TextStyle(color: Color(0xFF000000)),),
+            ),
+              ]
             ),
           ),
 
@@ -118,7 +158,7 @@ final List<IconData> leftSideIcons = [
 
 
 
-                  const SizedBox(height: 12),
+                  const SizedBox(height: 0),
 
                   if(_isExpanded)
                   Padding(
@@ -147,7 +187,7 @@ final List<IconData> leftSideIcons = [
                   //       () => setState(() => _isFinanceExpanded = !_isFinanceExpanded),
                   // ),
 
-                   SizedBox(height: context.height*0.26),
+                   SizedBox(height: context.height*0.08),
 
 
                   Padding(

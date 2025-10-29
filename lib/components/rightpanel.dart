@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:shreyanshadminportal/components/rightpanel/aniversarytile.dart';
 import 'package:shreyanshadminportal/components/rightpanel/birthdaytile.dart';
 import 'package:shreyanshadminportal/components/rightpanel/calender.dart';
+import 'package:shreyanshadminportal/extentions/mediaquery.dart';
 
 class rightpanel extends StatefulWidget {
   const rightpanel({super.key});
@@ -17,7 +18,7 @@ class _rightpanelState extends State<rightpanel> {
     return Scaffold(
       backgroundColor: Color(0xFF123456),
       body: Container(
-        width: 300,
+        width:600,
         color: Color(0xFF123456),
         child: SingleChildScrollView(
           child: Column(
