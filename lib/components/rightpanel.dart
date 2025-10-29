@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shreyanshadminportal/components/rightpanel/aniversarytile.dart';
+import 'package:shreyanshadminportal/components/rightpanel/birthdaytile.dart';
+import 'package:shreyanshadminportal/components/rightpanel/calender.dart';
 
 class rightpanel extends StatefulWidget {
   const rightpanel({super.key});
@@ -20,7 +23,7 @@ class _rightpanelState extends State<rightpanel> {
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 12.0, bottom: 12.0),
+                padding: const EdgeInsets.only(top: 12.0, bottom: 10.0),
                 child: Text(
                   '   GENERAL 10:00AM TO 7:00PM',
                   style: GoogleFonts.lato(
@@ -30,52 +33,46 @@ class _rightpanelState extends State<rightpanel> {
 
               ),
 
-              const SizedBox(height: 30),
+              const SizedBox(height: 10),
 
               // First Image
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(12),
-                  child: Image.asset(
-                    'assets/images/target.png',
-                    width: double.infinity,
-                    fit: BoxFit.cover,
-                  ),
-                ),
+                child: calender(),
+                // child: ClipRRect(
+                //   borderRadius: BorderRadius.circular(12),
+                //   child: Image.asset(
+                //     'assets/images/target.png',
+                //     width: double.infinity,
+                //     fit: BoxFit.cover,
+                //   ),
+                //),
               ),
 
-              const SizedBox(height: 40),
+              const SizedBox(height: 10),
 
               // Second Image
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(12),
-                  child: Image.asset(
-                    'assets/images/target.png',
-                    width: double.infinity,
-                    fit: BoxFit.cover,
-                  ),
-                ),
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                 child:BirthdayTile()//ClipRRect(
+                //   borderRadius: BorderRadius.circular(12),
+                //   child: Image.asset(
+                //     'assets/images/target.png',
+                //     width: double.infinity,
+                //     fit: BoxFit.cover,
+                //   ),
+                // ),
               ),
 
-              const SizedBox(height: 40),
+              //const SizedBox(height: 7),
 
               // Third Image
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(12),
-                  child: Image.asset(
-                    'assets/images/target.png',
-                    width: double.infinity,
-                    fit: BoxFit.cover,
-                  ),
-                ),
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                child: AnivTile(),
               ),
 
-              const SizedBox(height: 16),
+             // const SizedBox(height: 16),
             ],
           ),
         ),

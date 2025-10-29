@@ -92,7 +92,7 @@ final List<IconData> leftSideIcons = [
                             'WORKSPACES',
                             style: TextStyle(
                               color: Colors.black,
-                              fontSize: 25,
+                              fontSize: 23,
                               fontWeight: FontWeight.w600,
                               letterSpacing: 1.2,
                             ),
@@ -122,7 +122,7 @@ final List<IconData> leftSideIcons = [
 
                   if(_isExpanded)
                   Padding(
-                    padding: EdgeInsets.only(left: 32.0, top: 4.0, bottom: 8.0),
+                    padding: EdgeInsets.only(left: 32.0, top: 4.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -147,7 +147,7 @@ final List<IconData> leftSideIcons = [
                   //       () => setState(() => _isFinanceExpanded = !_isFinanceExpanded),
                   // ),
 
-                   SizedBox(height: context.height*0.3),
+                   SizedBox(height: context.height*0.26),
 
 
                   Padding(

@@ -21,7 +21,7 @@ class workspaceexpitem extends StatelessWidget {
               fontSize: 14,
             ),
           ),
-           SizedBox(width:title=='Adstacks'? context.width*0.039:context.width*0.043),
+           SizedBox(width:title=='Adstacks'? context.width*0.039:context.width*0.045),
            Icon(Icons.keyboard_arrow_down, color: Colors.black, size: 18),
         ],
       ),
