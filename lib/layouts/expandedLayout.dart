@@ -21,40 +21,37 @@ class _expandedLayoutState extends State<expandedLayout> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body:SafeArea(
-          child:Row(
-            children: [
-              leftsidebarexp(),
+      body:Row(
+        children: [
+          leftsidebarexp(),
 
-              Expanded(
-                flex: 3,
-                child: Column(
-                  children: [
-                    topappbarexp(context: context),
-                    Expanded(
-                      child: home(),
-                    ),
-                  ],
+          Expanded(
+            flex: 3,
+            child: Column(
+              children: [
+                topappbarexp(context: context),
+                Expanded(
+                  child: home(),
                 ),
-              ),
+              ],
+            ),
+          ),
 
-             // const SizedBox(height: 30),
-
-
-
-
-
-
-                //rightpanel(),
+         // const SizedBox(height: 30),
 
 
 
-              //rightpanel()
 
 
-            ],
-          )
 
+            //rightpanel(),
+
+
+
+          //rightpanel()
+
+
+        ],
       ) ,
 
     );
