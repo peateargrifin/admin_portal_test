@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shreyanshadminportal/extentions/mediaquery.dart';
 
 class topappbarexp extends StatefulWidget {
   const topappbarexp( {super.key , required BuildContext context});
@@ -11,7 +12,7 @@ class _topappbarexpState extends State<topappbarexp> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 70,
+      height: context.height*0.1,
       padding: const EdgeInsets.symmetric(horizontal: 24),
       decoration: BoxDecoration(
         color: Color(0xFFFAF9F6),
@@ -25,13 +26,13 @@ class _topappbarexpState extends State<topappbarexp> {
       ),
       child: Row(
         children: [
-          Text("data",style: TextStyle(color: Colors.grey[900]),),
-          const Spacer(),
+          Text("Home",style: TextStyle(color: Colors.grey[900]),),
+           SizedBox(width: context.width*0.38,),
 
           // Search Field
-          Expanded(
-            child: Container(
-              height: 42,
+           Container(
+              height: context.height*0.07,
+              width: context.width*0.2,
               padding: const EdgeInsets.symmetric(horizontal: 16),
               decoration: BoxDecoration(
                 color: const Color(0xFF123456),
@@ -57,17 +58,17 @@ class _topappbarexpState extends State<topappbarexp> {
                 ],
               ),
             ),
-          ),
 
-          const SizedBox(width: 24),
+
+          SizedBox(width:context.width*0.073),
 
           // List Icon
           IconButton(
-            icon: const Icon(Icons.list, color: Color(0xFF64748B)),
+            icon:  Icon(Icons.list, color: Color(0xFF64748B)),
             onPressed: () {},
           ),
 
-          const SizedBox(width: 8),
+        SizedBox(width: 8),
 
           // Bell Icon with Badge
           Stack(

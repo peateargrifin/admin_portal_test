@@ -32,15 +32,14 @@ class _homeState extends State<home> {
 
                 // Tile 2 and Tile 3 - Row with spacing
                 Row(
-
                   children: [
-                     Padding(
-                       padding: const EdgeInsets.only(left: 24.0,right: 8.0),
-                       child: Tile2(),
-                     ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 24.0, right: 8.0),
+                      child: Tile2(),
+                    ),
                     const SizedBox(width: 6),
                     Padding(
-                      padding: const EdgeInsets.only(left: 3.0,right: 3.0),
+                      padding: const EdgeInsets.only(left: 3.0, right: 3.0),
                       child: Tile3(),
                     ),
                   ],
@@ -50,11 +49,12 @@ class _homeState extends State<home> {
 
                 // Tile 4 - Full width at bottom
                 Tile4(),
+
               ],
             ),
           ),
           Expanded(child: rightpanel()),
-         // rightpanel()
+          // rightpanel()
         ],
       ),
     );
