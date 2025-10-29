@@ -158,7 +158,7 @@ class _topappbarexpState extends State<topappbarexp> {
               fontSize: context.height * 0.022,
             ),
           ),
-          SizedBox(width: context.width*0.38,),
+          SizedBox(width: context.width*0.35,),
 
           // Search Field
           Container(

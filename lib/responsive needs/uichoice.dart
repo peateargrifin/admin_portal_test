@@ -19,7 +19,7 @@ class _uichoiceState extends State<uichoice> {
           // Use width to determine layout
           if (constraints.maxWidth < 600) {
             // Small screen: phone layout
-            return phoneLayout();
+            return MobileDashboardLayout();
           } else {
             // Large screen: tablet/desktop layout
             return expandedLayout();

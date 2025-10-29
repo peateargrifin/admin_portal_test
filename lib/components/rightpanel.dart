@@ -114,7 +114,7 @@ class _rightpanelState extends State<rightpanel> {
                     bottom: context.height * 0.013
                 ),
                 child: Text(
-                  '   GENERAL 10:00AM TO 7:00PM',
+                  'GENERAL 10:00AM TO 7:00PM',
                   style: GoogleFonts.lato(
                     textStyle: TextStyle(
                         color: Colors.white,
