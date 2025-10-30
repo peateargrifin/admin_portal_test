@@ -276,7 +276,7 @@ class _leftsidebarexpState extends State<leftsidebarexp> {
             width: double.infinity,
             padding: EdgeInsets.all(context.width * 0.0125),
             child: Image.asset(
-              'assets/images/chanel.png', // Add company logo
+              'assets/images/edge.png', // Add company logo
               height: context.height*0.05,
               alignment: Alignment.center,
               fit: BoxFit.contain,

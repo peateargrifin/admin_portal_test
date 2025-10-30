@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-
-
 extension MediaQueryValues on BuildContext {
   // Screen width
   double get width => MediaQuery.of(this).size.width;

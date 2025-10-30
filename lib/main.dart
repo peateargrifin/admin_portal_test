@@ -13,9 +13,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-// The 'home' property defines the default route or starting screen of the app.
-      home: uichoice()
-      );
-
+      // The 'home' property defines the default route or starting screen of the app.
+      home: uichoice(),
+    );
   }
 }

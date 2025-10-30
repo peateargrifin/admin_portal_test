@@ -59,8 +59,8 @@ class _MobileDashboardLayoutState extends State<MobileDashboardLayout> {
                     _buildMobileAnniversaryTile(),
                     _buildMobileTopProject(),
                     _buildMobileAllProjects(),
-                    // _buildMobileTopCreators(),
-                    // _buildMobileStats(),
+                    _buildMobileTopCreators(),
+                    _buildMobileStats(),
                     SizedBox(height: context.height * 0.02),
                   ],
                 ),
@@ -245,8 +245,7 @@ class _MobileDashboardLayoutState extends State<MobileDashboardLayout> {
                         color: _selectedMenuIndex == index
                             ? Color(0xFFFAF9F6)
                             : Colors.transparent,
-                        borderRadius: BorderRadius.circular(context.width *
-                            0.03),
+                        borderRadius: BorderRadius.circular(context.width * 0.03),
                       ),
                       child: Row(
                         children: [
@@ -444,10 +443,8 @@ class _MobileDashboardLayoutState extends State<MobileDashboardLayout> {
   }
 
   Widget _buildCalendarGrid() {
-    DateTime firstDayOfMonth = DateTime(
-        _focusedDate.year, _focusedDate.month, 1);
-    DateTime lastDayOfMonth = DateTime(
-        _focusedDate.year, _focusedDate.month + 1, 0);
+    DateTime firstDayOfMonth = DateTime(_focusedDate.year, _focusedDate.month, 1);
+    DateTime lastDayOfMonth = DateTime(_focusedDate.year, _focusedDate.month + 1, 0);
     int firstWeekday = firstDayOfMonth.weekday;
     int daysFromPrevMonth = firstWeekday - 1;
     int daysInMonth = lastDayOfMonth.day;
@@ -459,19 +456,18 @@ class _MobileDashboardLayoutState extends State<MobileDashboardLayout> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: ['M', 'T', 'W', 'T', 'F', 'S', 'S']
-                .map((day) =>
-                Expanded(
-                  child: Center(
-                    child: Text(
-                      day,
-                      style: TextStyle(
-                        color: Colors.grey[600],
-                        fontSize: context.height * 0.016,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
+                .map((day) => Expanded(
+              child: Center(
+                child: Text(
+                  day,
+                  style: TextStyle(
+                    color: Colors.grey[600],
+                    fontSize: context.height * 0.016,
+                    fontWeight: FontWeight.w600,
                   ),
-                ))
+                ),
+              ),
+            ))
                 .toList(),
           ),
           SizedBox(height: context.height * 0.01),
@@ -489,18 +485,11 @@ class _MobileDashboardLayoutState extends State<MobileDashboardLayout> {
                 }
 
                 int dayNumber = index - daysFromPrevMonth + 1;
-                DateTime cellDate = DateTime(
-                    _focusedDate.year, _focusedDate.month, dayNumber);
+                DateTime cellDate = DateTime(_focusedDate.year, _focusedDate.month, dayNumber);
 
-                bool isToday = cellDate.year == DateTime
-                    .now()
-                    .year &&
-                    cellDate.month == DateTime
-                        .now()
-                        .month &&
-                    cellDate.day == DateTime
-                        .now()
-                        .day;
+                bool isToday = cellDate.year == DateTime.now().year &&
+                    cellDate.month == DateTime.now().month &&
+                    cellDate.day == DateTime.now().day;
 
                 bool isSelected = cellDate.year == _selectedDate.year &&
                     cellDate.month == _selectedDate.month &&
@@ -515,8 +504,7 @@ class _MobileDashboardLayoutState extends State<MobileDashboardLayout> {
                   child: Container(
                     margin: EdgeInsets.all(context.width * 0.005),
                     decoration: BoxDecoration(
-                      color: isSelected ? Color(0xFF3B82F6) : Colors
-                          .transparent,
+                      color: isSelected ? Color(0xFF3B82F6) : Colors.transparent,
                       shape: BoxShape.circle,
                       border: isToday && !isSelected
                           ? Border.all(
@@ -535,9 +523,7 @@ class _MobileDashboardLayoutState extends State<MobileDashboardLayout> {
                               ? Color(0xFF3B82F6)
                               : Colors.black87,
                           fontSize: context.height * 0.018,
-                          fontWeight: isToday || isSelected
-                              ? FontWeight.w600
-                              : FontWeight.w400,
+                          fontWeight: isToday || isSelected ? FontWeight.w600 : FontWeight.w400,
                         ),
                       ),
                     ),
@@ -666,8 +652,7 @@ class _MobileDashboardLayoutState extends State<MobileDashboardLayout> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(Icons.send, color: Colors.white,
-                    size: context.height * 0.022),
+                Icon(Icons.send, color: Colors.white, size: context.height * 0.022),
                 SizedBox(width: context.width * 0.02),
                 Text(
                   'BIRTHDAY WISH',
@@ -786,8 +771,7 @@ class _MobileDashboardLayoutState extends State<MobileDashboardLayout> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(Icons.send, color: Colors.white,
-                    size: context.height * 0.022),
+                Icon(Icons.send, color: Colors.white, size: context.height * 0.022),
                 SizedBox(width: context.width * 0.02),
                 Text(
                   'ANNIVERSARY WISH',
@@ -895,8 +879,7 @@ class _MobileDashboardLayoutState extends State<MobileDashboardLayout> {
                             vertical: context.height * 0.01,
                           ),
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(
-                                context.width * 0.02),
+                            borderRadius: BorderRadius.circular(context.width * 0.02),
                           ),
                         ),
                         child: Text(
@@ -944,11 +927,377 @@ class _MobileDashboardLayoutState extends State<MobileDashboardLayout> {
             ),
           ),
           SizedBox(height: context.height * 0.02),
-          //_buildMobileProjectTile(0),
+          _buildMobileProjectTile(0),
           SizedBox(height: context.height * 0.015),
-          //_buildMobileProjectTile(1),
+          _buildMobileProjectTile(1),
           SizedBox(height: context.height * 0.015),
-          //_buildMobileProjectTile(2),
+          _buildMobileProjectTile(2),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildMobileProjectTile(int index) {
+    bool isSelected = _selectedProjectTile == index;
+
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          _selectedProjectTile = index;
+        });
+      },
+      child: Container(
+        padding: EdgeInsets.all(context.width * 0.03),
+        decoration: BoxDecoration(
+          color: isSelected
+              ? Colors.red.withOpacity(0.3)
+              : Colors.white.withOpacity(0.1),
+          borderRadius: BorderRadius.circular(context.width * 0.03),
+          border: Border.all(
+            color: isSelected ? Colors.red : Colors.transparent,
+            width: context.width * 0.004,
+          ),
+        ),
+        child: Row(
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(context.width * 0.02),
+              child: Image.asset(
+                'assets/images/people.png',
+                width: context.height * 0.06,
+                height: context.height * 0.06,
+                fit: BoxFit.cover,
+              ),
+            ),
+            SizedBox(width: context.width * 0.03),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        child: Text(
+                          'TECHNOLOGY BEHIND BLOCKCHAIN',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: context.height * 0.016,
+                            fontWeight: FontWeight.w600,
+                            height: 1.2,
+                          ),
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      SizedBox(width: context.width * 0.02),
+                      Icon(
+                        Icons.edit,
+                        color: Colors.white70,
+                        size: context.height * 0.02,
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: context.height * 0.01),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Project #${index + 1}',
+                        style: TextStyle(
+                          color: Colors.white60,
+                          fontSize: context.height * 0.014,
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () => print('See more clicked for project ${index + 1}'),
+                        child: Text(
+                          'See More',
+                          style: TextStyle(
+                            color: Colors.blue,
+                            fontSize: context.height * 0.014,
+                            fontWeight: FontWeight.w600,
+                            decoration: TextDecoration.underline,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  // Mobile Top Creators
+  Widget _buildMobileTopCreators() {
+    return Container(
+      width: double.infinity,
+      padding: EdgeInsets.all(context.width * 0.04),
+      margin: EdgeInsets.symmetric(
+        horizontal: context.width * 0.04,
+        vertical: context.height * 0.01,
+      ),
+      decoration: BoxDecoration(
+        color: Color(0xFF0A1628),
+        borderRadius: BorderRadius.circular(context.width * 0.04),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'TOP CREATORS',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: context.height * 0.02,
+              fontWeight: FontWeight.bold,
+              letterSpacing: context.width * 0.003,
+            ),
+          ),
+          SizedBox(height: context.height * 0.02),
+          Container(
+            padding: EdgeInsets.symmetric(
+              horizontal: context.width * 0.03,
+              vertical: context.height * 0.01,
+            ),
+            decoration: BoxDecoration(
+              color: Color(0xFF1E3A5F).withOpacity(0.5),
+              borderRadius: BorderRadius.circular(context.width * 0.02),
+            ),
+            child: Row(
+              children: [
+                SizedBox(width: context.height * 0.06),
+                Expanded(
+                  flex: 2,
+                  child: Text(
+                    'Name',
+                    style: TextStyle(
+                      color: Colors.white70,
+                      fontSize: context.height * 0.014,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+                Expanded(
+                  flex: 2,
+                  child: Text(
+                    'Artworks',
+                    style: TextStyle(
+                      color: Colors.white70,
+                      fontSize: context.height * 0.014,
+                      fontWeight: FontWeight.w600,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                Expanded(
+                  flex: 2,
+                  child: Text(
+                    'Rating',
+                    style: TextStyle(
+                      color: Colors.white70,
+                      fontSize: context.height * 0.014,
+                      fontWeight: FontWeight.w600,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          SizedBox(height: context.height * 0.015),
+          ...creators.map((creator) => _buildMobileCreatorTile(
+            creator['handle'],
+            creator['artworks'],
+            creator['rating'],
+          )),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildMobileCreatorTile(String handle, String artworks, int rating) {
+    return Container(
+      margin: EdgeInsets.only(bottom: context.height * 0.012),
+      padding: EdgeInsets.symmetric(
+        horizontal: context.width * 0.03,
+        vertical: context.height * 0.01,
+      ),
+      decoration: BoxDecoration(
+        color: Color(0xFF0D1F3C),
+        borderRadius: BorderRadius.circular(context.width * 0.02),
+      ),
+      child: Row(
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(context.width * 0.015),
+            child: Image.asset(
+              'assets/images/people.png',
+              width: context.height * 0.05,
+              height: context.height * 0.05,
+              fit: BoxFit.cover,
+            ),
+          ),
+          SizedBox(width: context.width * 0.025),
+          Expanded(
+            flex: 2,
+            child: Text(
+              handle,
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: context.height * 0.014,
+                fontWeight: FontWeight.w500,
+              ),
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
+          Expanded(
+            flex: 2,
+            child: Text(
+              artworks,
+              style: TextStyle(
+                color: Colors.white70,
+                fontSize: context.height * 0.014,
+              ),
+              textAlign: TextAlign.center,
+            ),
+          ),
+          Expanded(
+            flex: 2,
+            child: Container(
+              height: context.height * 0.012,
+              decoration: BoxDecoration(
+                color: Colors.transparent,
+                borderRadius: BorderRadius.circular(context.width * 0.01),
+                border: Border.all(
+                  color: Color(0xFF6B5B95),
+                  width: context.width * 0.002,
+                ),
+              ),
+              child: FractionallySizedBox(
+                alignment: Alignment.centerLeft,
+                widthFactor: rating / 5,
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Color(0xFF6B5B95),
+                    borderRadius: BorderRadius.circular(context.width * 0.008),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  // Mobile Stats
+  Widget _buildMobileStats() {
+    return Container(
+      margin: EdgeInsets.symmetric(
+        horizontal: context.width * 0.04,
+        vertical: context.height * 0.01,
+      ),
+      child: Column(
+        children: [
+          Row(
+            children: [
+              Expanded(
+                child: _buildMobileStatCard(
+                  'Total Projects',
+                  '156',
+                  Icons.folder,
+                  Color(0xFF3B82F6),
+                ),
+              ),
+              SizedBox(width: context.width * 0.03),
+              Expanded(
+                child: _buildMobileStatCard(
+                  'Active Users',
+                  '2,847',
+                  Icons.people,
+                  Color(0xFF10B981),
+                ),
+              ),
+            ],
+          ),
+          SizedBox(height: context.height * 0.015),
+          Row(
+            children: [
+              Expanded(
+                child: _buildMobileStatCard(
+                  'Completed',
+                  '89',
+                  Icons.check_circle,
+                  Color(0xFFF59E0B),
+                ),
+              ),
+              SizedBox(width: context.width * 0.03),
+              Expanded(
+                child: _buildMobileStatCard(
+                  'Revenue',
+                  '\$45.2K',
+                  Icons.attach_money,
+                  Color(0xFFEF4444),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildMobileStatCard(String title, String value, IconData icon, Color color) {
+    return Container(
+      padding: EdgeInsets.all(context.width * 0.04),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(context.width * 0.04),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.05),
+            blurRadius: context.width * 0.02,
+            offset: Offset(0, context.height * 0.002),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            padding: EdgeInsets.all(context.width * 0.025),
+            decoration: BoxDecoration(
+              color: color.withOpacity(0.1),
+              borderRadius: BorderRadius.circular(context.width * 0.02),
+            ),
+            child: Icon(
+              icon,
+              color: color,
+              size: context.height * 0.035,
+            ),
+          ),
+          SizedBox(height: context.height * 0.015),
+          Text(
+            value,
+            style: TextStyle(
+              fontSize: context.height * 0.028,
+              fontWeight: FontWeight.bold,
+              color: Colors.black87,
+            ),
+          ),
+          SizedBox(height: context.height * 0.005),
+          Text(
+            title,
+            style: TextStyle(
+              fontSize: context.height * 0.015,
+              color: Colors.grey[600],
+            ),
+          ),
         ],
       ),
     );

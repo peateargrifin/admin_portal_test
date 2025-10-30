@@ -4,6 +4,7 @@ import '../components/leftsidebarexp.dart';
 import '../components/rightpanel.dart';
 import '../components/topappbarexp.dart';
 import '../pages/home.dart';
+
 class expandedLayout extends StatefulWidget {
   const expandedLayout({super.key});
 
@@ -12,16 +13,11 @@ class expandedLayout extends StatefulWidget {
 }
 
 class _expandedLayoutState extends State<expandedLayout> {
-
-
-
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body:Row(
+      body: Row(
         children: [
           leftsidebarexp(),
 
@@ -30,30 +26,18 @@ class _expandedLayoutState extends State<expandedLayout> {
             child: Column(
               children: [
                 topappbarexp(context: context),
-                Expanded(
-                  child: home(),
-                ),
+                Expanded(child: home()),
               ],
             ),
           ),
 
-         // const SizedBox(height: 30),
+          // const SizedBox(height: 30),
 
-
-
-
-
-
-            //rightpanel(),
-
-
+          //rightpanel(),
 
           //rightpanel()
-
-
         ],
-      ) ,
-
+      ),
     );
   }
 }
